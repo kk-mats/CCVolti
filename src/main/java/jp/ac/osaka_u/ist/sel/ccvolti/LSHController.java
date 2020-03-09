@@ -100,7 +100,16 @@ public class LSHController {
 
 		ArrayList<String> fromArray = new ArrayList<String>();
 		if (program == FALCONN64) {
-			fromArray.add(Paths.get(CloneDetector.javaClassPath, "FALCONN", "falconn4bcd.exe").toString());
+			String os = System.getProperty("os.name").toLowerCase();
+			System.out.println(os + " is detected by Java.");
+			if (os.startsWith("win")){
+				fromArray.add(Paths.get(CloneDetector.javaClassPath, "FALCONN", "falconn4bcd-windows.exe").toString());
+			} else if (os.startsWith("linux")){
+				fromArray.add(Paths.get(CloneDetector.javaClassPath, "FALCONN", "falconn4bcd-linux").toString());
+			} else {
+				System.out.println(os + "is not supported by this application.");
+				return;
+			}
 			fromArray.add(Integer.toString(blockList.size()));
 			fromArray.add(Integer.toString(dimention));
 			fromArray.add(Integer.toString(Config.LSH_L));
