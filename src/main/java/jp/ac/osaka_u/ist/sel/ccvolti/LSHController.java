@@ -24,9 +24,9 @@ public class LSHController {
 	 * パラメータ計算
 	 * </p>
 	 */
-	public void computeParam(List<Block> blockList, int dimention) {
+	public void computeParam(List<Block> blockList, int dimension) {
 		String[] fromArray = { "E2LSH\\LSHMain.exe", Integer.toString(blockList.size()),
-				Integer.toString(blockList.size()), Integer.toString(dimention),
+				Integer.toString(blockList.size()), Integer.toString(dimension),
 				Double.toString(Config.LSH_PROB), Double.toString(Config.LSH_R), CloneDetector.DATASET_FILE,
 				CloneDetector.DATASET_FILE, "3978000000", "-c" };
 		for (String string : fromArray) {
@@ -93,7 +93,7 @@ public class LSHController {
 	 * @throws InterruptedException
 	 * @throws IOException
 	 */
-	public void execute(List<Block> blockList, int dimention, int program) {
+	public void execute(List<Block> blockList, int dimension, int program) {
 		int numHardThread = Runtime.getRuntime().availableProcessors();
 		if (Config.NUM_THREADS == 0 || Config.NUM_THREADS > numHardThread)
 			Config.NUM_THREADS = numHardThread;
@@ -111,7 +111,7 @@ public class LSHController {
 				return;
 			}
 			fromArray.add(Integer.toString(blockList.size()));
-			fromArray.add(Integer.toString(dimention));
+			fromArray.add(Integer.toString(dimension));
 			fromArray.add(Integer.toString(Config.LSH_L));
 			fromArray.add(CloneDetector.DATASET_FILE);
 			fromArray.add(CloneDetector.DATASET_FILE);
@@ -120,19 +120,19 @@ public class LSHController {
 		} else if (program == FALCONN32) {
 			fromArray.add(Paths.get(CloneDetector.javaClassPath, "FALCONN32", "falconn4bcd.exe").toString());
 			fromArray.add(Integer.toString(blockList.size()));
-			fromArray.add(Integer.toString(dimention));
+			fromArray.add(Integer.toString(dimension));
 			fromArray.add(Integer.toString(Config.LSH_L));
 			fromArray.add(CloneDetector.DATASET_FILE);
 			fromArray.add(CloneDetector.DATASET_FILE);
 			fromArray.add(Double.toString(Config.SIM_TH));
 			fromArray.add(Integer.toString(Config.NUM_THREADS));
 		} else if (program == E2LSH) {
-			computeParam(blockList, dimention);
+			computeParam(blockList, dimension);
 
 			fromArray.add("E2LSH\\LSHMain.exe");
 			fromArray.add(Integer.toString(blockList.size()));
 			fromArray.add(Integer.toString(blockList.size()));
-			fromArray.add(Integer.toString(dimention));
+			fromArray.add(Integer.toString(dimension));
 			fromArray.add(Double.toString(Config.LSH_PROB));
 			fromArray.add(Double.toString(Config.LSH_R));
 			fromArray.add(CloneDetector.DATASET_FILE);
