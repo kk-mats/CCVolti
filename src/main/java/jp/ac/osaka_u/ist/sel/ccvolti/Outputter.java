@@ -277,7 +277,7 @@ public class Outputter {
 	public static void outputBlockList(ArrayList<Block> blockList) throws IOException {
 		System.out.println("output BlockList");
 		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(CloneDetector.BLOCKLIST_CSV)));
-		writer.printf("id,class,name,start,end,node,vector dimention,vector len,vector\r\n");
+		writer.printf("id,class,name,start,end,node,vector dimension,vector len,vector\r\n");
 		for (Block block : blockList) {
 			writer.printf("%d,%s,%s,%d,%d,%d,%d,%f,", block.getId(), block.getFileName(), block.getName(),
 					block.getStartLine(), block.getEndLine(), block.getNodeNum(), block.getVector().getDimension(),

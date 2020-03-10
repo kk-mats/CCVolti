@@ -23,10 +23,10 @@ public class VectorCalculator {
 	private static final int APPEARANCE_TH = 1;
 	private static final int SPARSE = 0;
 	private static final int DENSE = 1;
-	private int dimention;
+	private int dimension;
 
-	public int getDimention() {
-		return dimention;
+	public int getDimension() {
+		return dimension;
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class VectorCalculator {
 				iter.remove();
 			}
 		}
-		dimention = wordMap.size();
+		dimension = wordMap.size();
 		System.out.println("filtered word count : " + wordMap.size());
 
 		long start = System.currentTimeMillis();

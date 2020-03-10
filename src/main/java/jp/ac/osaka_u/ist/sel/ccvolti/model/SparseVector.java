@@ -10,17 +10,17 @@ import java.util.Set;
 
 public class SparseVector implements MyVector{
 
-	public int dimentions;
+	public int dimensions;
 	private Map<Integer, Double> sparseVector;
 	
 	public SparseVector(int d) {
-		this.dimentions = d;
+		this.dimensions = d;
 		this.sparseVector = new HashMap<Integer, Double>();
 	}
 	
 	@Override
 	public void set(int i, double e){
-		if(i<0 || i>=dimentions) {
+		if(i<0 || i>=dimensions) {
 			throw new IndexOutOfBoundsException();
 		}
 		if(e>0.0) sparseVector.put(i, e);
@@ -28,7 +28,7 @@ public class SparseVector implements MyVector{
 	
 	@Override
 	public double get(int i){
-		if(i<0 || i>=dimentions) {
+		if(i<0 || i>=dimensions) {
 			throw new IndexOutOfBoundsException();
 		}
 		Double e;

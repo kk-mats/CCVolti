@@ -2,11 +2,11 @@ package jp.ac.osaka_u.ist.sel.ccvolti.model;
 
 public class DenseVector implements MyVector{
 
-	public int dimention;
+	public int dimension;
 	private double[] denseVector;
 	
 	public DenseVector(int d) {
-		this.dimention = d;
+		this.dimension = d;
 		this.denseVector = new double[d];
 	}
 	
