@@ -41,7 +41,7 @@ public class CloneJudgement {
 	 * @throws IOException
 	 */
 	public ArrayList<ClonePair> getClonePairList(List<Block> blockList) {
-		System.out.println("parallel calc distanse");
+		System.out.println("parallel calc distance");
 		long start = System.currentTimeMillis();
 		int numHardThread = Runtime.getRuntime().availableProcessors();
 		if (Config.NUM_THREADS == 0 || Config.NUM_THREADS > numHardThread)
@@ -128,7 +128,7 @@ public class CloneJudgement {
 			if (executor != null)
 				executor.shutdown();
 		}
-		System.out.print("parallel calc distanse done : ");
+		System.out.print("parallel calc distance done : ");
 		System.out.println(System.currentTimeMillis() - start + "[ms]");
 
 		System.out.println("filtering start");
@@ -149,7 +149,7 @@ public class CloneJudgement {
 	}
 
 	public ArrayList<ClonePair> getClonePairListNoLSH(List<Block> blockList) {
-		System.out.println("parallel calc distanse no LSH");
+		System.out.println("parallel calc distance no LSH");
 		long start = System.currentTimeMillis();
 
 		int numHardThread = Runtime.getRuntime().availableProcessors();
@@ -195,7 +195,7 @@ public class CloneJudgement {
 			System.err.println(e);
 		}
 
-		System.out.print("parallel calc distanse done : ");
+		System.out.print("parallel calc distance done : ");
 		System.out.println(System.currentTimeMillis() - start + "[ms]");
 
 		System.out.println("filtering start");
